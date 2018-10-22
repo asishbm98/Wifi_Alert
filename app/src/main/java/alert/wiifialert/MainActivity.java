@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,13 +27,12 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.ssid);
         ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        if(wifiCheck.isConnected())
-        {
-            textView.setText("IS CONNECTED");
+        if(wifiCheck.isConnected()) {
+            android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
         }
-        else
-            textView.setText("NOT CONNECTED");
-
+        else {
+            android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
+        }
         //textView.setText("works!!");
 
     }
