@@ -17,20 +17,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //wifiCheck = connectionManager.
+
+
     }
 
     public void scanforwifi(View view) {
-        //ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        //wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-//        if(wifiCheck.isConnected())
-//        {
-//            textView.setText("IS CONNECTED");
-//        }
-//        else
-//            textView.setText("NOT CONNECTED");
-//
-//        //textView.setText("works!!");
+        NetworkInfo wifiCheck;
+        TextView textView = findViewById(R.id.ssid);
+        ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if(wifiCheck.isConnected())
+        {
+            textView.setText("IS CONNECTED");
+        }
+        else
+            textView.setText("NOT CONNECTED");
+
+        //textView.setText("works!!");
 
     }
 }
