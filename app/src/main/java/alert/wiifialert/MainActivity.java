@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     public void scanforwifi(View view) {
         NetworkInfo wifiCheck;
         TextView textView = findViewById(R.id.ssid);
+        ImageView imageView= (ImageView) findViewById(R.id.img);
+
+
         ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
@@ -41,11 +45,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(wifiCheck.isConnected()) {
-            textView.setText("Connected to " + ssid);
 
+            imageView.setImageResource(R.drawable.f);
+            imageView.setImageResource(R.drawable.f);
+
+            textView.setText("Connected to " + ssid);
             android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
         }
         else {
+            imageView.setImageResource(R.drawable.n_f);
+            imageView.setImageResource(R.drawable.n_f);
             textView.setText("Not connected to any network");
             android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
         }

@@ -30,10 +30,10 @@
         android:onClick="scanforwifi"/>
 
     <ImageView
-        android:id="@+id/button"
+        android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/f"
+        android:src="@drawable/s"
         />
 
 </LinearLayout>
