@@ -9,21 +9,15 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:text="Enter wifi ssid"/>
 
     <EditText
+        android:paddingTop="30dp"
         android:id="@+id/ssid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="SSID" />
+        android:text="Enter wifi ssid" />
 
     <Button
         android:layout_width="wrap_content"
