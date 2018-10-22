@@ -2,6 +2,7 @@ package alert.wiifialert;
 
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,18 +32,26 @@ public class MainActivity extends AppCompatActivity {
         wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService (Context.WIFI_SERVICE);
-        WifiInfo info = wifiManager.getConnectionInfo ();
-        String ssid_  = info.getSSID();
+        WifiInfo info = wifiManager.getConnectionInfo();
+        int state =wifiManager.getWifiState();
+
+        String ssid  = info.getSSID();
+
 
 
 
         if(wifiCheck.isConnected()) {
+            textView.setText("Connected to " + ssid);
+
             android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
         }
         else {
+            textView.setText("Not connected to any network");
             android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
         }
-        textView.setText(ssid_);
+        //SystemClock.sleep(5000);
+
+
 
     }
 }

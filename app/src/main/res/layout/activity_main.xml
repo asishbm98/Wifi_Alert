@@ -10,16 +10,19 @@
     tools:context=".MainActivity">
 
 
-    <EditText
+    <TextView
         android:paddingTop="30dp"
         android:id="@+id/ssid"
+        android:textSize="20sp"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter wifi ssid" />
+        android:paddingBottom="20dp"
+        android:text="@string/enter_wifi_ssid" />
 
     <Button
+        android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -30,7 +33,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/png"
+        android:src="@drawable/f"
         />
 
 </LinearLayout>
