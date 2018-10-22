@@ -11,8 +11,6 @@ import android.net.NetworkInfo;
 
 
 public class MainActivity extends AppCompatActivity {
-   // NetworkInfo wifiCheck;
-    TextView textView = findViewById(R.id.ssid);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
