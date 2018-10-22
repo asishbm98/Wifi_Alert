@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         else {
             android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
         }
-        textView.setText(ssid_);
+        textView.setText(ssid_ + " ");
+
 
     }
 }
