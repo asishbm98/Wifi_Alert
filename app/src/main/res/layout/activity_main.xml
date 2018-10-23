@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Check"
-        android:onClick="scanforwifi"/>
+        android:onClick="fn"/>
 
     <ImageView
         android:id="@+id/img"

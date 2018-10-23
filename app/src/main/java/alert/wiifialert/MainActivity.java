@@ -1,5 +1,7 @@
 package alert.wiifialert;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -23,7 +25,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void scanforwifi(View view) {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+
+            IntentFilter intentFilter = new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION);
+            registerReceiver(wifiStateReceiver, intentFilter);
+
+
+    }
+
+
+    public void fn(View view) {
+        scanforwifi();
+    }
+
+    public void scanforwifi() {
         NetworkInfo wifiCheck;
         TextView textView = findViewById(R.id.ssid);
         ImageView imageView= (ImageView) findViewById(R.id.img);
@@ -38,15 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
         String ssid  = info.getSSID();
 
-
-
-
         if(wifiCheck.isConnected()) {
 
             imageView.setImageResource(R.drawable.f);
             imageView.setImageResource(R.drawable.f);
             textView.setText("Connected to " + ssid);
-            android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
+            // android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
         }
         else {
             imageView.setImageResource(R.drawable.n_f);
@@ -55,11 +72,21 @@ public class MainActivity extends AppCompatActivity {
             final MediaPlayer alert = MediaPlayer.create(this,R.raw.alert_);
             alert.start();
 
-            android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
+            // android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
         }
-        //SystemClock.sleep(5000);
+
 
 
 
     }
+
+    private BroadcastReceiver wifiStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            scanforwifi();
+
+        }
+    };
+
 }
