@@ -28,11 +28,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-
-            IntentFilter intentFilter = new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION);
+            IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
             registerReceiver(wifiStateReceiver, intentFilter);
 
 
@@ -46,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void scanforwifi() {
         NetworkInfo wifiCheck;
         TextView textView = findViewById(R.id.ssid);
-        ImageView imageView= (ImageView) findViewById(R.id.img);
+        ImageView imageView=  findViewById(R.id.img);
 
 
         ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
