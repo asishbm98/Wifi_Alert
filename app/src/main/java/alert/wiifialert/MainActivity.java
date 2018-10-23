@@ -1,5 +1,6 @@
 package alert.wiifialert;
 
+import android.media.MediaPlayer;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.SystemClock;
@@ -20,10 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
     }
 
     public void scanforwifi(View view) {
@@ -48,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
             imageView.setImageResource(R.drawable.f);
             imageView.setImageResource(R.drawable.f);
-
             textView.setText("Connected to " + ssid);
             android.widget.Toast.makeText(this, "Wifi is connected", Toast.LENGTH_LONG).show();
         }
@@ -56,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
             imageView.setImageResource(R.drawable.n_f);
             imageView.setImageResource(R.drawable.n_f);
             textView.setText("Not connected to any network");
+            final MediaPlayer alert = MediaPlayer.create(this,R.raw.alert_);
+            alert.start();
+
             android.widget.Toast.makeText(this, "Wifi is not connected", Toast.LENGTH_LONG).show();
         }
         //SystemClock.sleep(5000);
